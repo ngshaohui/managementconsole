@@ -13,6 +13,8 @@ import { LoginService } from '../login/login.service';
 
 import { SupervisorRouter } from './router';
 import { SupervisorAuthGuard } from './auth.guard';
+import { TaskComponent } from './task/task.component';
+import { TechnicianComponent } from './technician/technician.component';
 
 @NgModule({
   imports: [
@@ -26,7 +28,9 @@ import { SupervisorAuthGuard } from './auth.guard';
   declarations: [
     SupervisorComponent,
     SupervisorNavbarComponent,
-    OverseerComponent
+    OverseerComponent,
+    TaskComponent,
+    TechnicianComponent
   ],
   exports: [],
   providers: [
