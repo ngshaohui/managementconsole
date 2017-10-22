@@ -17,8 +17,7 @@ import { SupervisorComponent } from './components/supervisor/supervisor.componen
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    SupervisorComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

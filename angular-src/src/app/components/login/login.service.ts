@@ -11,7 +11,7 @@ const AuthRoutes = {
 @Injectable()
 export class LoginService {
     authToken: string;
-    loggedInAsSupervisor: boolean;
+    loggedInAsSupervisor = true;
     loggedInAsPlanner: boolean;
     loggedInAsTechnician = true;
 

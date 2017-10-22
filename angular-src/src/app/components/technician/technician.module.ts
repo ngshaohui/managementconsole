@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragulaModule } from 'ng2-dragula';
 
 import { TechnicianComponent } from './technician.component';
 import { TechnicianNavbarComponent } from './navbar/navbar.component';
@@ -17,6 +18,7 @@ import { OverseerComponent } from './overseer/overseer.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    DragulaModule,
     TechnicianRouter
   ],
   declarations: [

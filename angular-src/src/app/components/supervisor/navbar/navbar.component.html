@@ -5,11 +5,11 @@
         <div class="d-flex sidebar-top-item">
           <a [routerLink]="['/']">
             <label *ngIf="sidebarVisible" class="nav-link-text sidebar-top-item-text">
-              <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to site
+              <i class="material-icons">account_circle</i> John Alpaca
             </label>
           </a>
           <a (click)="toggleSidebar()">
-            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+            <i class="material-icons">menu</i>
           </a>
         </div>
       </li>
@@ -21,7 +21,7 @@
           <div class="d-flex sidebar-link-item">
             <i class="fa fa-bar-chart fa-lg" aria-hidden="true"></i>
             <label *ngIf="sidebarVisible" class="nav-link-text">
-              Overview
+              Overseer
             </label>
           </div>
         </a>
@@ -33,7 +33,7 @@
           <div class="d-flex sidebar-link-item">
             <i class="fa fa-book fa-lg" aria-hidden="true"></i>
             <label *ngIf="sidebarVisible" class="nav-link-text">
-            Posts
+            Deployment
           </label>
           </div>
         </a>

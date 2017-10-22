@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarComponent } from './navbar.component';
+import { OverseerComponent } from './overseer.component';
 
-describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+describe('OverseerComponent', () => {
+  let component: OverseerComponent;
+  let fixture: ComponentFixture<OverseerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [ OverseerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarComponent);
+    fixture = TestBed.createComponent(OverseerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
