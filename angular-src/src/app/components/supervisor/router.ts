@@ -9,10 +9,7 @@ const viewsRoutes: Routes = [
     {
         path: 'supervisor',
         component: SupervisorComponent,
-        canActivate: [SupervisorAuthGuard],
-        children: [
-            { path: '', component: SupervisorComponent }
-        ]
+        canActivate: [SupervisorAuthGuard]
     }
 ];
 

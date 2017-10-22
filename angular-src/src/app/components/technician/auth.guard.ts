@@ -10,9 +10,11 @@ export class TechnicianAuthGuard implements CanActivate {
     ) { }
 
     canActivate() {
-        if (this.loginService.loggedInAsTechnician) {
+        if (this.loginService.isTechnician()) {
+            console.log("true");
             return true;
         } else {
+            console.log("false");
             this.router.navigate(['/']);
             return false;
         }

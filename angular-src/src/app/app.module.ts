@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButtonModule, MatInputModule, MatSelectModule, MatOptionModule, MatFormFieldModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -22,7 +24,20 @@ import { SupervisorComponent } from './components/supervisor/supervisor.componen
     BrowserModule,
     SupervisorModule,
     TechnicianModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
     routes
+  ],
+  exports: [
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

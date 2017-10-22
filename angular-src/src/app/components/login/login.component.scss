@@ -1,0 +1,14 @@
+.login-component-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-container {
+        margin-top: 10%;
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

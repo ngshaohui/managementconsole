@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TechnicianAuthGuard } from './auth.guard';
 
 import { TechnicianComponent } from './technician.component';
+import { OverseerComponent } from './overseer/overseer.component';
 
 const viewsRoutes: Routes = [
     {
@@ -11,7 +12,7 @@ const viewsRoutes: Routes = [
         component: TechnicianComponent,
         canActivate: [TechnicianAuthGuard],
         children: [
-            { path: '', component: TechnicianComponent }
+            { path: '', component: OverseerComponent }
         ]
     }
 ];

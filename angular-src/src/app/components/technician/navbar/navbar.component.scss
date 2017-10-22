@@ -1,0 +1,83 @@
+.navbar-component-wrapper {
+  height: 100%;
+
+  .sidebar {
+    height: 100%;
+    min-height: 100vh;
+    font-size: 1.2em;
+    font-family: sans-serif;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    border-right: 1px solid #eee;
+    line-height: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    .sidebar-top-item {
+      justify-content: space-between;
+      padding: 1em 1em;
+
+      /* Make back to site button smaller than the other buttons */
+      .sidebar-top-item-text {
+        font-size: 0.85em;
+        color: #000;
+      }
+
+      /* Remove underline on hover */
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    .fa {
+      padding: 0 0.3em;
+    }
+
+    label.nav-link-text {
+      cursor: inherit;
+      white-space: nowrap;
+    }
+
+    /* Attempt to align icons to text (not successful) */
+    .sidebar-link-item {
+      flex-wrap: nowrap;
+      align-items: baseline;
+    }
+
+    /* Divider between sections */
+    hr {
+      border: 1px solid #ddd;
+      width: 90%;
+    }
+  }
+
+  .sidebar-expand {
+    width: 12em;
+  }
+
+  .sidebar-collapse {
+    width: 4em;
+  }
+
+  .sidebar .nav {
+    margin-bottom: 20px;
+  }
+
+  .sidebar .nav-item {
+    width: 100%;
+    height: 2.5em;
+  }
+
+  .sidebar .nav-link {
+    border-radius: 0;
+    color: #000;
+  }
+
+  /* Sidebar expand-collapse animation */
+  .sidebar {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+}
