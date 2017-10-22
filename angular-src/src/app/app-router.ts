@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 export class AppRouter { }
 
 export const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent }
+    { path: '', component: LoginComponent }
   ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { TechnicianComponent } from './technician.component';
+
 import { TechnicianRouter } from './router';
 import { TechnicianAuthGuard } from './auth.guard';
 
@@ -14,6 +16,7 @@ import { TechnicianAuthGuard } from './auth.guard';
     TechnicianRouter
   ],
   declarations: [
+    TechnicianComponent
   ],
   exports: [],
   providers: [
@@ -21,4 +24,4 @@ import { TechnicianAuthGuard } from './auth.guard';
   ]
 })
 
-export class SupervisorModule { }
+export class TechnicianModule { }
