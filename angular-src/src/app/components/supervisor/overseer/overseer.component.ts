@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-overseer',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overseer.component.scss']
 })
 export class OverseerComponent implements OnInit {
+  @Input()
+  id: String;
 
   constructor() { }
 
@@ -13,3 +15,8 @@ export class OverseerComponent implements OnInit {
   }
 
 }
+/*
+Should take in the task id
+task id will then give the list of people currently working on a task
+should be able to assign people to the task
+*/

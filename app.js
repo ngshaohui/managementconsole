@@ -2,9 +2,9 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var config = require('./config');
-
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 // Cors middleware
 app.use(function(req, res, next) {
@@ -23,7 +23,23 @@ var port = process.env.PORT || 3000;
 // Set Static Folder
 app.use(express.static(path.join(__dirname, '/public')));
 
+io.on('connection', (socket) => {
+  
+  console.log('user connected');
+
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+  });
+
+  //planner creates a new task
+  socket.on('create-task', (message) => {
+    io.emit('message', { type: 'new-task', text: message });
+    // do something
+  });
+
+});
+
 // Start server
-app.listen(port, function () {
+app.listen(port, () => {
   console.log('server started on port ' + port);
 });
