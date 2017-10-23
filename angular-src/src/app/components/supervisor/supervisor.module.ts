@@ -15,6 +15,7 @@ import { SupervisorRouter } from './router';
 import { SupervisorAuthGuard } from './auth.guard';
 import { TaskComponent } from './task/task.component';
 import { TechnicianComponent } from './technician/technician.component';
+import { TaskmanagerComponent } from './taskmanager/taskmanager.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { TechnicianComponent } from './technician/technician.component';
     SupervisorNavbarComponent,
     OverseerComponent,
     TaskComponent,
-    TechnicianComponent
+    TechnicianComponent,
+    TaskmanagerComponent
   ],
   exports: [],
   providers: [

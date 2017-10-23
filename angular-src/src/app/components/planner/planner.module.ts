@@ -12,6 +12,7 @@ import { LoginService } from '../login/login.service';
 import { PlannerRouter } from './router';
 import { PlannerAuthGuard } from './auth.guard';
 import { OverseerComponent } from './overseer/overseer.component';
+import { TaskmanagerComponent } from './taskmanager/taskmanager.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { OverseerComponent } from './overseer/overseer.component';
   declarations: [
     PlannerComponent,
     PlannerNavbarComponent,
-    OverseerComponent
+    OverseerComponent,
+    TaskmanagerComponent
   ],
   exports: [],
   providers: [
@@ -33,4 +35,4 @@ import { OverseerComponent } from './overseer/overseer.component';
   ]
 })
 
-export class TechnicianModule { }
+export class PlannerModule { }

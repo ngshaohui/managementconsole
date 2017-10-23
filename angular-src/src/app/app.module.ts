@@ -8,10 +8,10 @@ import { MatButtonModule, MatInputModule, MatSelectModule, MatOptionModule, MatF
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { PlannerModule } from './components/planner/planner.module';
 import { SupervisorModule } from './components/supervisor/supervisor.module';
 
 import { routes } from './app-router';
-import { SupervisorComponent } from './components/supervisor/supervisor.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { SupervisorComponent } from './components/supervisor/supervisor.componen
   ],
   imports: [
     BrowserModule,
+    PlannerModule,
     SupervisorModule,
     BrowserAnimationsModule,
     MatButtonModule,
