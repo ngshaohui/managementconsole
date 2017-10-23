@@ -12,29 +12,18 @@ const AuthRoutes = {
 export class LoginService {
     authToken: string;
     loggedInAsSupervisor = true;
-    loggedInAsPlanner: boolean;
-    loggedInAsTechnician = true;
+    loggedInAsPlanner = true;
 
     constructor(
         private http: Http
     ) { }
 
-    loginTech() {
-        this.loggedInAsTechnician = true;
-        console.log("login as tech");
-        console.log(this.loggedInAsTechnician);
-    }
-    
     isPlanner(): boolean {
         return this.loggedInAsPlanner;
     }
     
     isSupervisor(): boolean {
         return this.loggedInAsSupervisor;
-    }
-    
-    isTechnician(): boolean {
-        return this.loggedInAsTechnician;
     }
 
     //TODO specify the interface of the promise being returned

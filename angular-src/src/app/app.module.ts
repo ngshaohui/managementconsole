@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { SupervisorModule } from './components/supervisor/supervisor.module';
-import { TechnicianModule } from './components/technician/technician.module';
 
 import { routes } from './app-router';
 import { SupervisorComponent } from './components/supervisor/supervisor.component';
@@ -22,7 +21,6 @@ import { SupervisorComponent } from './components/supervisor/supervisor.componen
   imports: [
     BrowserModule,
     SupervisorModule,
-    TechnicianModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
