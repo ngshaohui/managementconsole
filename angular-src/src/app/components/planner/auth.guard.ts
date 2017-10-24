@@ -11,10 +11,8 @@ export class PlannerAuthGuard implements CanActivate {
 
     canActivate() {
         if (this.loginService.isPlanner()) {
-            console.log("true");
             return true;
         } else {
-            console.log("false");
             this.router.navigate(['/']);
             return false;
         }

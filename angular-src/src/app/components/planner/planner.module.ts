@@ -13,6 +13,7 @@ import { PlannerRouter } from './router';
 import { PlannerAuthGuard } from './auth.guard';
 import { OverseerComponent } from './overseer/overseer.component';
 import { TaskmanagerComponent } from './taskmanager/taskmanager.component';
+import { AddtaskComponent } from './addtask/addtask.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { TaskmanagerComponent } from './taskmanager/taskmanager.component';
     PlannerComponent,
     PlannerNavbarComponent,
     OverseerComponent,
-    TaskmanagerComponent
+    TaskmanagerComponent,
+    AddtaskComponent
   ],
   exports: [],
   providers: [
