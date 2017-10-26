@@ -1,11 +1,14 @@
 .overseer-component-wrapper {
+  .planner-task-manager-header {
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+  }
+
   .dg-wrapper {
     display: flex;
   }
 
   .dg-card {
-    margin: 0.2em;
-    padding: 0.2em;
     transition: opacity 0.4s ease-in-out;
   }
 
@@ -20,5 +23,9 @@
 
   .dg-task-container {
     background-color: #eeeeee;
+  }
+
+  .task-item {
+    cursor: pointer;
   }
 }

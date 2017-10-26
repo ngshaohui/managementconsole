@@ -10,12 +10,14 @@ import { SupervisorNavbarComponent } from './navbar/navbar.component';
 import { OverseerComponent } from './overseer/overseer.component';
 
 import { LoginService } from '../login/login.service';
+import { APIService } from '../services/api.service';
 
 import { SupervisorRouter } from './router';
 import { SupervisorAuthGuard } from './auth.guard';
 import { TaskComponent } from './task/task.component';
 import { TechnicianComponent } from './technician/technician.component';
 import { TaskmanagerComponent } from './taskmanager/taskmanager.component';
+import { DeploymentComponent } from './deployment/deployment.component';
 
 @NgModule({
   imports: [
@@ -32,11 +34,13 @@ import { TaskmanagerComponent } from './taskmanager/taskmanager.component';
     OverseerComponent,
     TaskComponent,
     TechnicianComponent,
-    TaskmanagerComponent
+    TaskmanagerComponent,
+    DeploymentComponent
   ],
   exports: [],
   providers: [
     LoginService,
+    APIService,
     SupervisorAuthGuard
   ]
 })

@@ -5,6 +5,7 @@ import { SupervisorAuthGuard } from './auth.guard';
 
 import { SupervisorComponent } from './supervisor.component';
 import { OverseerComponent } from './overseer/overseer.component';
+import { DeploymentComponent } from './deployment/deployment.component';
 
 const viewsRoutes: Routes = [
     {
@@ -12,7 +13,8 @@ const viewsRoutes: Routes = [
         component: SupervisorComponent,
         canActivate: [SupervisorAuthGuard],
         children: [
-            { path: '', component: OverseerComponent }
+            { path: '', component: OverseerComponent },
+            { path: 'deployment', component: DeploymentComponent }
         ]
     }
 ];
