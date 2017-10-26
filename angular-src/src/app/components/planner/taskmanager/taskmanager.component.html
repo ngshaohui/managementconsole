@@ -1,10 +1,10 @@
 <div class="planner-task-manager container">
   <div class="planner-task-manager-header d-flex">
-    <h3>Tasks</h3>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+    <h3>Unassigned Tasks</h3>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       Add Task
-    </button>
+    </button> -->
   </div>
   <table class="table">
     <thead>
@@ -17,13 +17,42 @@
       </tr>
     </thead>
     <tbody>
-        <tr class="task-item">
-          <td>A380</td>
-          <td>CD12345</td>
-          <td>9 August 2017</td>
-          <td>Lavatory 12 unable to latch</td>
-          <td>Lavatory</td>
-        </tr>
+      <tr (click)="simulateSelect()" class="task-item" data-toggle="modal" data-target=".bd-example-modal-lg">
+        <td>A380</td>
+        <td>CD12345</td>
+        <td>9 August 2017</td>
+        <td>Lavatory 12 unable to latch</td>
+        <td>Lavatory</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="planner-task-manager-header d-flex">
+    <h3>Assigned Tasks</h3>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        Add Task
+      </button> -->
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Fleet</th>
+        <th scope="col">Defect No.</th>
+        <th scope="col">Date Raised</th>
+        <th scope="col">Defects</th>
+        <th scope="col">Category</th>
+        <th scope="col">Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="simulateSelect()" class="task-item" data-toggle="modal" data-target=".bd-example-modal-lg">
+        <td>A380</td>
+        <td>CD12345</td>
+        <td>9 August 2017</td>
+        <td>Lavatory 12 unable to latch</td>
+        <td>Lavatory</td>
+        <td>2</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -32,29 +61,83 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Assign Task</h5>
       </div>
       <div class="container">
         <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Registration Number</label>
+              <input [(ngModel)]="regn" type="text" class="form-control" id="exampleFormControlInput1" name="regn">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Fleet</label>
+              <input [(ngModel)]="fleet" type="text" class="form-control" id="exampleFormControlInput1" name="fleet">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Defect Number</label>
+              <input [(ngModel)]="defectNo" type="text" class="form-control" id="exampleFormControlInput1" name="defectNo">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">STN</label>
+              <input [(ngModel)]="stn" type="text" class="form-control" id="exampleFormControlInput1" name="stn">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Date Raised</label>
+              <input [(ngModel)]="fleet" type="text" class="form-control" id="exampleFormControlInput1" name="fleet">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Ageing</label>
+              <input [(ngModel)]="ageing" type="text" class="form-control" id="exampleFormControlInput1" name="ageing">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">ATA</label>
+              <input [(ngModel)]="ata" type="text" class="form-control" id="exampleFormControlInput1" name="ata">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Category</label>
+              <input [(ngModel)]="category" type="text" class="form-control" id="exampleFormControlInput1" name="category">
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Priority level</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-            </select>
+            <label for="exampleFormControlTextarea1">Defects</label>
+            <textarea [(ngModel)]="defects" class="form-control" id="exampleFormControlTextarea1" rows="3" name="defects"></textarea>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1">Action</label>
+            <textarea [(ngModel)]="action" class="form-control" id="exampleFormControlTextarea1" rows="3" name="action"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Part Details</label>
+            <input [(ngModel)]="partDetails" type="text" class="form-control" id="exampleFormControlInput1" name="partDetails">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Deferral Reason</label>
+            <textarea [(ngModel)]="deferral" class="form-control" id="exampleFormControlTextarea1" rows="3" name="deferral"></textarea>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Class Code</label>
+              <input [(ngModel)]="classCode" type="text" class="form-control" id="exampleFormControlInput1" name="classCode">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlSelect1">Priority level</label>
+              <select [(ngModel)]="priority" class="form-control" id="exampleFormControlSelect1" name="priority">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+              </select>
+            </div>
           </div>
           <button style="margin-bottom: 2em;" type="button" class="btn btn-primary">
             Create Task
