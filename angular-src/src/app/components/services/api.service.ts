@@ -1,8 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-
-// import { tokenNotExpired } from 'angular2-jwt';
 
 const Routes = {
     API: "http://db-gateway-siacabindefects.b9ad.pro-us-east-1.openshiftapps.com",
@@ -132,13 +130,15 @@ export class APIService {
     
     assignToDefect(techID: string, defectID: string): Promise<any> {
         let headers = new Headers();
-        headers.append('id', techID);
-        console.log(techID);
-        console.log(defectID);
+        headers.append('Content-Type', 'application/json');
+
+        let body = {
+            id: techID
+        }
 
         return new Promise((resolve, reject) => {
             this.http
-            .put(Routes.API + Routes.assignTech + defectID, { headers: headers })
+            .put(Routes.API + Routes.assignTech + defectID, JSON.stringify(body), {headers: headers})
             .subscribe(
                 data => {
                     resolve(data.json());
@@ -152,11 +152,38 @@ export class APIService {
     
     unassignFromDefect(techID: string, defectID: string): Promise<any> {
         let headers = new Headers();
-        headers.append('id', techID);
+        headers.append('Content-Type', 'application/json');
+
+        let body = {
+            id: techID
+        }
+
+        let reqOpt = new RequestOptions({
+            headers: headers,
+            body: body
+         })
 
         return new Promise((resolve, reject) => {
             this.http
-            .delete(Routes.API + Routes.assignTech + defectID, { headers: headers })
+            .delete(Routes.API + Routes.assignTech + defectID, reqOpt)
+            .subscribe(
+                data => {
+                    resolve(data.json());
+                },
+                err => {
+                    reject(err);
+                }
+            );
+        });
+    }
+    
+    createDefect(defect: any): Promise<any> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        return new Promise((resolve, reject) => {
+            this.http
+            .post(Routes.API + Routes.createDefect, JSON.stringify(defect), {headers: headers})
             .subscribe(
                 data => {
                     resolve(data.json());

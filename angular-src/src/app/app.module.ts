@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule, MatInputModule, MatSelectModule, MatOptionModule, MatFormFieldModule } from '@angular/material';
 
@@ -23,6 +24,8 @@ import { routes } from './app-router';
     PlannerModule,
     SupervisorModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     MatSelectModule,

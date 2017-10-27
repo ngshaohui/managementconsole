@@ -1,17 +1,17 @@
 <div class="login-component-wrapper">
   <div class="login-container">
     <mat-form-field>
-      <input matInput placeholder="Username">
+      <input [(ngModel)]="username" matInput placeholder="Username">
     </mat-form-field>
     <br>
 
     <mat-form-field>
-      <input matInput placeholder="Password" type="password">
+      <input [(ngModel)]="password" matInput placeholder="Password" type="password">
     </mat-form-field>
     <br>
 
     <div class="btn-container">
-      <button type="button" class="btn btn-outline-primary btn-sm btn-block">Login</button>
+      <button (click)="submitForm()" type="button" class="btn btn-outline-primary btn-sm btn-block">Login</button>
     </div>
   </div>
 </div>

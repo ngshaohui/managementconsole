@@ -5,11 +5,11 @@
         <div class="d-flex sidebar-top-item">
           <a [routerLink]="['/']">
             <label *ngIf="sidebarVisible" class="nav-link-text sidebar-top-item-text">
-              <i class="material-icons">account_circle</i> John Planner
+              <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i> John Planner
             </label>
           </a>
           <a (click)="toggleSidebar()">
-            <i class="material-icons">menu</i>
+              <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
           </a>
         </div>
       </li>
@@ -21,20 +21,8 @@
           <div class="d-flex sidebar-link-item">
             <i class="fa fa-bar-chart fa-lg" aria-hidden="true"></i>
             <label *ngIf="sidebarVisible" class="nav-link-text">
-              Overseer
+              Overview
             </label>
-          </div>
-        </a>
-      </li>
-
-      <!--NEW POSTS-->
-      <li [routerLinkActive]="['nav-link-active']" [routerLinkActiveOptions]="{exact:true}"  class="nav-item">
-        <a class="nav-link" [routerLink]="['/dashboard/posts']">
-          <div class="d-flex sidebar-link-item">
-            <i class="fa fa-book fa-lg" aria-hidden="true"></i>
-            <label *ngIf="sidebarVisible" class="nav-link-text">
-            Deployment
-          </label>
           </div>
         </a>
       </li>

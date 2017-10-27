@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from '../../services/api.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,7 +9,10 @@ import * as $ from 'jquery';
 })
 export class TaskmanagerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private apiService: APIService
+  ) { }
+  defectList: any;
   regn: string;
   fleet: string;
   defectNo: string;
@@ -24,24 +28,33 @@ export class TaskmanagerComponent implements OnInit {
   classCode: string;
   priority: number;
 
-  dummy = {
-    regn: "SWT",
-    fleet: "A380",
-    defectNo: "CD123456",
-    stn: "SIN",
-    dateRaised: 1508839733245,
-    ageing: 12,
-    ata: 25,
-    defects: "your mom",
-    action: "take a chill pill",
-    partDetails: "33D2WQFA",
-    deferral: "Nil stock",
-    category: "Lavatory",
-    classCode: "Premium"
-  }
+  //ideally pull this from api but this is not given
+  dummyData = [{
+    "header": "Light at Seat 23B spoilt",
+    "classCode": "economy",
+    "category": "seat",
+    "plane": "SWT",
+    "description": "needs new lightbulb",
+    "priority": 1
+  }];
 
   ngOnInit() {
+    this.getDefects();
     $('#myModal').on('hide.bs.modal', function (e) {
+    });
+  }
+
+  createDefect(): void {
+    this.apiService.createDefect(this.dummyData[0]);
+  }
+
+  getDefects(): void {
+    this.apiService.getDefects()
+    .then(res => {
+      this.defectList = res;
+    })
+    .catch(res => {
+      console.log(res);
     });
   }
 
@@ -74,21 +87,14 @@ export class TaskmanagerComponent implements OnInit {
     this.regn = "SWT";
     this.fleet = "A380";
     this.defectNo = "CD123456";
-    this.stn = "SIN";
     this.dateRaised = 1508839733245;
-    this.ageing = Math.floor((new Date().getTime() - this.dateRaised) / (1000*60*60*24));
     this.ata = 25;
-    this.defects = "your mom",
+    this.defects = "something",
     this.action = "take a chill pill",
     this.partDetails = "33D2WQFA",
     this.deferral = "Nil stock",
     this.category = "Lavatory",
     this.classCode = "Premium"
   }
-
-  assignTask() {
-    ;
-  }
-
 
 }

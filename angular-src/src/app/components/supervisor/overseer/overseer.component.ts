@@ -90,8 +90,8 @@ export class OverseerComponent implements OnInit {
         //populate
         this.curDefectID = cur.id;
         this.modalHeader = cur.header;
-        this.modalETA = this.formatDate(new Date(cur.ETA));
-        this.modalETD = this.formatDate(new Date(cur.ETD));
+        this.modalETA = this.formatDate(new Date(cur.plane.ETA));
+        this.modalETD = this.formatDate(new Date(cur.plane.ETD));
         this.modalTechsAssigned = cur.techsAssigned;
         this.modalDateReported = this.formatDate(new Date(cur.dateReported));
         this.modalCategory = cur.category;
