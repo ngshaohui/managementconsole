@@ -78,8 +78,8 @@ export class OverseerComponent implements OnInit {
   }
 
   confirmAssign() {
-    console.log(this.modalTechsAssigned);
-    console.log(this.modalUnassignedTechs);
+    this.initTechs();
+    this.initDefects();
   }
 
   //populate the modal fields
