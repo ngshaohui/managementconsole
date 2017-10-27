@@ -75,7 +75,7 @@ export class APIService {
             );
         });
     }
-    
+
     getDefect(id: string): Promise<any> {
         let headers = new Headers();
         headers.append('id', id);
@@ -93,7 +93,7 @@ export class APIService {
             );
         });
     }
-    
+
     getDefects(): Promise<any> {
 
         return new Promise((resolve, reject) => {
@@ -109,7 +109,7 @@ export class APIService {
             );
         });
     }
-    
+
     getTechDefects(id: string): Promise<any> {
         let headers = new Headers();
         headers.append('id', id);
@@ -127,7 +127,7 @@ export class APIService {
             );
         });
     }
-    
+
     assignToDefect(techID: string, defectID: string): Promise<any> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -149,7 +149,7 @@ export class APIService {
             );
         });
     }
-    
+
     unassignFromDefect(techID: string, defectID: string): Promise<any> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -176,23 +176,24 @@ export class APIService {
             );
         });
     }
-    
-    createDefect(defect: any): Promise<any> {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
 
-        return new Promise((resolve, reject) => {
-            this.http
-            .post(Routes.API + Routes.createDefect, JSON.stringify(defect), {headers: headers})
-            .subscribe(
-                data => {
-                    resolve(data.json());
-                },
-                err => {
-                    reject(err);
-                }
-            );
-        });
-    }
+  createDefect(defect: any): Promise<any> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    let options = new RequestOptions({headers: headers});
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(Routes.API + Routes.createDefect, JSON.stringify(defect), options)
+        .subscribe(
+          data => {
+            resolve(data.json());
+          },
+          err => {
+            reject(err);
+          }
+        );
+    });
+  }
 
 }

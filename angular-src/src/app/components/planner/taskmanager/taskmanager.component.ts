@@ -27,6 +27,9 @@ export class TaskmanagerComponent implements OnInit {
   category: string;
   classCode: string;
   priority: number;
+  eta: string;
+  etd: string;
+  classCode: string;
 
   //ideally pull this from api but this is not given
   dummyData = [{
@@ -50,12 +53,12 @@ export class TaskmanagerComponent implements OnInit {
 
   getDefects(): void {
     this.apiService.getDefects()
-    .then(res => {
-      this.defectList = res;
-    })
-    .catch(res => {
-      console.log(res);
-    });
+      .then(res => {
+        this.defectList = res;
+      })
+      .catch(res => {
+        console.log(res);
+      });
   }
 
   //after submitting or dismiss
@@ -68,12 +71,12 @@ export class TaskmanagerComponent implements OnInit {
     this.ageing = null;
     this.ata = null;
     this.defects = "",
-    this.action = "",
-    this.partDetails = "",
-    this.deferral = "",
-    this.category = "",
-    this.classCode = "",
-    this.priority = 1;
+      this.action = "",
+      this.partDetails = "",
+      this.deferral = "",
+      this.category = "",
+      this.classCode = "",
+      this.priority = 1;
   }
 
   // preload the modal fields
@@ -86,15 +89,15 @@ export class TaskmanagerComponent implements OnInit {
   simulateSelect() {
     this.regn = "SWT";
     this.fleet = "A380";
-    this.defectNo = "CD123456";
-    this.dateRaised = 1508839733245;
+    this.eta = "2017-10-28T19:01:12.123123Z";
+    this.etd = "2017-10-28T22:01:12.123123Z";
     this.ata = 25;
-    this.defects = "something",
-    this.action = "take a chill pill",
-    this.partDetails = "33D2WQFA",
-    this.deferral = "Nil stock",
-    this.category = "Lavatory",
-    this.classCode = "Premium"
+    this.defects = "Light at Seat 23B spoilt",
+      this.action = "",
+      this.partDetails = "",
+      this.deferral = "",
+      this.category = "Seat",
+      this.classCode = "Economy"
   }
 
 }

@@ -8,20 +8,20 @@
   </div>
   <table class="table">
     <thead>
-      <tr>
-        <th scope="col">Defect</th>
-        <th scope="col">Category</th>
-        <th scope="col">Plane</th>
-        <th scope="col">Class Code</th>
-      </tr>
+    <tr>
+      <th scope="col">Defect</th>
+      <th scope="col">Category</th>
+      <th scope="col">Plane</th>
+      <th scope="col">Class Code</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let defect of dummyData" (click)="simulateSelect()" class="task-item" data-toggle="modal" data-target=".bd-example-modal-lg">
-        <td>{{defect.header}}</td>
-        <td>{{defect.category}}</td>
-        <td>{{defect.plane}}</td>
-        <td>{{defect.classCode}}</td>
-      </tr>
+    <tr *ngFor="let defect of dummyData" (click)="simulateSelect()" class="task-item" data-toggle="modal" data-target=".bd-example-modal-lg">
+      <td>{{defect.header}}</td>
+      <td>{{defect.category}}</td>
+      <td>{{defect.plane}}</td>
+      <td>{{defect.classCode}}</td>
+    </tr>
     </tbody>
   </table>
   <div class="planner-task-manager-header d-flex">
@@ -33,24 +33,24 @@
   </div>
   <table class="table table-striped">
     <thead>
-      <tr>
-        <th scope="col">Defect No.</th>
-        <th scope="col">Defect</th>
-        <th scope="col">Date Raised</th>
-        <th scope="col">Category</th>
-        <th scope="col">Priority</th>
-        <th scope="col">Assigned</th>
-      </tr>
+    <tr>
+      <th scope="col">Defect No.</th>
+      <th scope="col">Defect</th>
+      <th scope="col">Date Raised</th>
+      <th scope="col">Category</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Assigned</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let defect of defectList" class="task-item">
-        <td>{{defect.id}}</td>
-        <td>{{defect.header}}</td>
-        <td>{{defect.dateReported}}</td>
-        <td>{{defect.category}}</td>
-        <td>{{defect.priority}}</td>
-        <td>{{defect.techsAssigned.length}}</td>
-      </tr>
+    <tr *ngFor="let defect of defectList" class="task-item">
+      <td>{{defect.id}}</td>
+      <td>{{defect.header}}</td>
+      <td>{{defect.dateReported}}</td>
+      <td>{{defect.category}}</td>
+      <td>{{defect.priority}}</td>
+      <td>{{defect.techsAssigned.length}}</td>
+    </tr>
     </tbody>
   </table>
 </div>
@@ -75,12 +75,12 @@
           </div>
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="exampleFormControlInput1">Defect Number</label>
-              <input [(ngModel)]="defectNo" type="text" class="form-control" id="exampleFormControlInput1" name="defectNo">
+              <label for="exampleFormControlInput1">ETA</label>
+              <input [(ngModel)]="eta" type="text" class="form-control" id="exampleFormControlInput1" name="eta">
             </div>
             <div class="form-group col-md-6">
-              <label for="exampleFormControlInput1">Date Raised</label>
-              <input [(ngModel)]="fleet" type="text" class="form-control" id="exampleFormControlInput1" name="fleet">
+              <label for="exampleFormControlInput1">ETD</label>
+              <input [(ngModel)]="etd" type="text" class="form-control" id="exampleFormControlInput1" name="etd">
             </div>
           </div>
           <div class="row">
