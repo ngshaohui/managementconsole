@@ -29,7 +29,6 @@ export class TaskmanagerComponent implements OnInit {
   priority: number;
   eta: string;
   etd: string;
-  classCode: string;
 
   //ideally pull this from api but this is not given
   dummyData = [{
