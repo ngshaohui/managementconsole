@@ -105,8 +105,8 @@ export class TaskmanagerComponent implements OnInit {
     this.header = "Light at Seat 23B spoilt";
     this.plane = "SWT",
     this.description = "",
-    this.category = "Seat",
-    this.classCode = "Economy"
+    this.category = "seats",
+    this.classCode = "economy"
   }
 
 }
