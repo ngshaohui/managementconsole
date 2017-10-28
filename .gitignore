@@ -2,9 +2,10 @@
 
 # compiled output
 /dist
-/public
 /tmp
 /out-tsc
+
+/angular-src
 
 # dependencies
 /node_modules
