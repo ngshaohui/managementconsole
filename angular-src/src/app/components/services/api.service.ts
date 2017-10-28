@@ -176,24 +176,42 @@ export class APIService {
             );
         });
     }
+    
+    createDefect(defect: any): Promise<any> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
 
-  createDefect(defect: any): Promise<any> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+        return new Promise((resolve, reject) => {
+        this.http
+            // .post(Routes.API + Routes.createDefect, options)
+            .post(Routes.API + Routes.createDefect, JSON.stringify(defect), {headers: headers})
+            .subscribe(
+            data => {
+                resolve(data.json());
+            },
+            err => {
+                reject(err);
+            }
+            );
+        });
+    }
+    
+    updateDefect(defect: any): Promise<any> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
 
-    let options = new RequestOptions({headers: headers});
-    return new Promise((resolve, reject) => {
-      this.http
-        .post(Routes.API + Routes.createDefect, JSON.stringify(defect), options)
-        .subscribe(
-          data => {
-            resolve(data.json());
-          },
-          err => {
-            reject(err);
-          }
-        );
-    });
-  }
+        return new Promise((resolve, reject) => {
+            this.http
+            .patch(Routes.API + Routes.defect + '/' + defect.id, JSON.stringify(defect), {headers: headers})
+            .subscribe(
+                data => {
+                    resolve(data.json());
+                },
+                err => {
+                    reject(err);
+                }
+            );
+        });
+    }
 
 }

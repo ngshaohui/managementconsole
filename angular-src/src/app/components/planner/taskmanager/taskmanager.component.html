@@ -8,20 +8,20 @@
   </div>
   <table *ngIf="defectList" class="table">
     <thead>
-    <tr>
-      <th scope="col">Defect</th>
-      <th scope="col">Category</th>
-      <th scope="col">Plane</th>
-      <th scope="col">Class Code</th>
-    </tr>
+      <tr>
+        <th scope="col">Defect</th>
+        <th scope="col">Category</th>
+        <th scope="col">Plane</th>
+        <th scope="col">Class Code</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let defect of dummyData" (click)="simulateSelect()" class="task-item" data-toggle="modal" data-target=".bd-example-modal-lg">
-      <td>{{defect.header}}</td>
-      <td>{{defect.category}}</td>
-      <td>{{defect.plane}}</td>
-      <td>{{defect.classCode}}</td>
-    </tr>
+      <tr *ngFor="let defect of dummyData" (click)="simulateSelect()" class="task-item" data-toggle="modal" data-target=".bd-example-modal-lg">
+        <td>{{defect.header}}</td>
+        <td>{{defect.category}}</td>
+        <td>{{defect.plane}}</td>
+        <td>{{defect.classCode}}</td>
+      </tr>
     </tbody>
   </table>
   <div class="planner-task-manager-header d-flex">
@@ -33,29 +33,81 @@
   </div>
   <table class="table table-striped">
     <thead>
-    <tr>
-      <th scope="col">Defect No.</th>
-      <th scope="col">Defect</th>
-      <th scope="col">Date Raised</th>
-      <th scope="col">Category</th>
-      <th scope="col">Priority</th>
-      <th scope="col">Assigned</th>
-    </tr>
+      <tr>
+        <th scope="col">Defect No.</th>
+        <th scope="col">Defect</th>
+        <th scope="col">Date Raised</th>
+        <th scope="col">Category</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Assigned</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let defect of defectList" class="task-item">
-      <td>{{defect.id}}</td>
-      <td>{{defect.header}}</td>
-      <td>{{defect.dateReported}}</td>
-      <td>{{defect.category}}</td>
-      <td>{{defect.priority}}</td>
-      <td>{{defect.techsAssigned.length}}</td>
-    </tr>
+      <tr (click)="selectTask(defect)" *ngFor="let defect of defectList" class="task-item">
+        <td>{{defect.id}}</td>
+        <td>{{defect.header}}</td>
+        <td>{{defect.plane.swt}}</td>
+        <td>{{defect.category}}</td>
+        <td>{{defect.priority}}</td>
+        <td>{{defect.techsAssigned.length}}</td>
+      </tr>
     </tbody>
   </table>
 </div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Assign Task</h5>
+      </div>
+      <div class="container">
+        <form>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlInput1">Header</label>
+              <input [(ngModel)]="header" type="text" class="form-control" id="exampleFormControlInput1" name="header">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Class Code</label>
+              <input [(ngModel)]="classCode" type="text" class="form-control" id="exampleFormControlInput1" name="classCode">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Category</label>
+              <input [(ngModel)]="category" type="text" class="form-control" id="exampleFormControlInput1" name="category">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Plane</label>
+              <input [(ngModel)]="plane" type="text" class="form-control" id="exampleFormControlInput1" name="plane">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlSelect1">Priority level</label>
+              <select [(ngModel)]="priority" class="form-control" id="exampleFormControlSelect1" name="priority">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea [(ngModel)]="deferral" class="form-control" id="exampleFormControlTextarea1" rows="3" name="deferral"></textarea>
+          </div>
+          <button (click)="confirmTask()" data-dismiss="modal" style="margin-bottom: 2em;" type="button" class="btn btn-primary">
+            Confirm
+          </button>
+          <br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -127,4 +179,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../services/api.service';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-taskmanager',
@@ -13,28 +12,21 @@ export class TaskmanagerComponent implements OnInit {
     private apiService: APIService
   ) { }
   defectList: any;
-  regn: string;
-  fleet: string;
-  defectNo: string;
-  stn: string;
+  header: string;
+  plane: string;
   dateRaised: number;
-  ageing: number;
-  ata: number;
-  defects: string;
-  action: string;
-  partDetails: string;
-  deferral: string;
+  description: string;
   category: string;
   classCode: string;
   priority: number;
-  eta: string;
-  etd: string;
+  id: string;
+  newTask: boolean;
 
   //ideally pull this from api but this is not given
   dummyData = [{
     "header": "Light at Seat 23B spoilt",
     "classCode": "economy",
-    "category": "seat",
+    "category": "seats",
     "plane": "SWT",
     "description": "needs new lightbulb",
     "priority": 1
@@ -42,8 +34,6 @@ export class TaskmanagerComponent implements OnInit {
 
   ngOnInit() {
     this.getDefects();
-    $('#myModal').on('hide.bs.modal', function (e) {
-    });
   }
 
   createDefect(): void {
@@ -60,43 +50,63 @@ export class TaskmanagerComponent implements OnInit {
       });
   }
 
-  //after submitting or dismiss
-  private resetFields(): void {
-    this.regn = "";
-    this.fleet = "";
-    this.defectNo = "";
-    this.stn = "";
-    this.dateRaised = null;
-    this.ageing = null;
-    this.ata = null;
-    this.defects = "",
-      this.action = "",
-      this.partDetails = "",
-      this.deferral = "",
-      this.category = "",
-      this.classCode = "",
-      this.priority = 1;
+  //handles both new task and update
+  confirmTask(): void {
+    if (!this.newTask) { //has id
+      let data = {
+        header: this.header,
+        classCode: this.classCode,
+        category: this.category,
+        plane: this.plane,
+        description: this.description,
+        priority: this.priority
+      }
+      this.apiService.updateDefect(data)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(res => {
+        console.log(res);
+      });
+    } else { //has no id
+      let data = {
+        header: this.header,
+        classCode: this.classCode,
+        category: this.category,
+        plane: this.plane,
+        description: this.description,
+        priority: this.priority
+      }
+      this.apiService.createDefect(data)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(res => {
+        console.log(res);
+      });
+    }
   }
 
   // preload the modal fields
-  selectTask(defectNo: string) {
-    //get the defect
-    //load the defect values
+  // existing task
+  selectTask(defect: any) {
+    this.newTask = false;
+    this.header = defect.header;
+    this.plane = defect.plane.swt,
+    this.description = defect.description,
+    this.category = defect.category,
+    this.classCode = defect.classCode
+    this.id = defect.id;
   }
 
   //for demo
   simulateSelect() {
-    this.regn = "SWT";
-    this.fleet = "A380";
-    this.eta = "2017-10-28T19:01:12.123123Z";
-    this.etd = "2017-10-28T22:01:12.123123Z";
-    this.ata = 25;
-    this.defects = "Light at Seat 23B spoilt",
-      this.action = "",
-      this.partDetails = "",
-      this.deferral = "",
-      this.category = "Seat",
-      this.classCode = "Economy"
+    this.newTask = true;
+    this.header = "Light at Seat 23B spoilt";
+    this.plane = "SWT",
+    this.description = "",
+    this.category = "Seat",
+    this.classCode = "Economy"
   }
 
 }

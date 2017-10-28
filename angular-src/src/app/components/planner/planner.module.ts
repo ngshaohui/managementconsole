@@ -7,6 +7,7 @@ import { DragulaModule } from 'ng2-dragula';
 import { PlannerComponent } from './planner.component';
 import { PlannerNavbarComponent } from './navbar/navbar.component';
 
+import { APIService } from '../services/api.service';
 import { LoginService } from '../login/login.service';
 
 import { PlannerRouter } from './router';
@@ -32,6 +33,7 @@ import { AddtaskComponent } from './addtask/addtask.component';
   ],
   exports: [],
   providers: [
+    APIService,
     LoginService,
     PlannerAuthGuard,
   ]
